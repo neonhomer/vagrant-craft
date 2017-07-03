@@ -1,10 +1,10 @@
+# Environment file
+.env.sh
 
-# Created by https://www.gitignore.io/api/node,macos,vagrant,windows,craftcms
+### Custom CraftCMS
 
-### CraftCMS ###
-# Craft Storage (cache) [http://buildwithcraft.com/help/craft-storage-gitignore]
-/craft/storage/*
-!/craft/storage/logo/*
+
+# Created by https://www.gitignore.io/api/node,macos,vagrant,windows
 
 ### macOS ###
 *.DS_Store
@@ -118,4 +118,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/node,macos,vagrant,windows,craftcms
+# End of https://www.gitignore.io/api/node,macos,vagrant,windows
