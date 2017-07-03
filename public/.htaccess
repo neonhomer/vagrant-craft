@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	RewriteBase /
+
+	# Redirect www to non-www
+	RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+	RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+	
+	# Redirect non-https to https
+	RewriteCond %{HTTP_HOST} enter-domain\.ltd [NC]
+	RewriteCond %{HTTPS} off
+	RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+
+	# Send would-be 404 requests to Craft
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
+	RewriteRule (.+) index.php?p=$1 [QSA,L]
+</IfModule>
